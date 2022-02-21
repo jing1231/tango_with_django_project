@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from django.shortcuts import redirect
 from django.urls import reverse
 
+
 # Create your views here.
 def index(request):
     # Query the database for a list of ALL categories currently stored.
@@ -35,8 +36,14 @@ def index(request):
 
 def about(request):
     # return HttpResponse("Rango says here is the about page.")
-    context_dict = {'boldmessage':'This tutorial has been put together by Jing Xue'}
-    return render(request, 'rango/about.html',context=context_dict)
+    #context_dict = {'boldmessage':'This tutorial has been put together by Jing Xue'}
+    #return render(request, 'rango/about.html',context=context_dict)
+    # prints out whether the method is a GET or a POST
+    print(request.method)
+    # prints out the user name, if no one is logged in it prints ÀnonymousUser`
+    print(request.user)
+    return render(request, 'rango/about.html', {})
+
 
 def show_category(request,category_name_slug):
     # Create a context dictionary which we can pass
